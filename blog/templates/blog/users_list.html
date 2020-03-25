@@ -9,7 +9,7 @@
 {% block content %}
 
 
-	<h2>Список пользователей</h2>
+	<h2 id="login-message-title" class="title-user">Список пользователей</h2>
 
 	{% if request.user.is_authenticated %}
 		<ul class="posts-list">

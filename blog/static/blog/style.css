@@ -1571,3 +1571,46 @@ h1 {
 	font-size: 18px;
 	font-weight: bold;
 }
+
+
+
+/*Общий стиль для страниц с сообщениями о входе, выходе из логина, редактирования, создания страниц и т.п.*/
+.area-message {
+
+	padding: 80px;
+
+	border-radius: 20px;
+
+	display: flex;
+	flex-direction: column;
+
+	color: #EEF663;
+	background-color: #3E2844;
+
+}
+
+.login-message {
+
+	padding-left: 60px;
+
+}
+
+.login-message a {
+
+	color: #748EF4;
+}
+
+.login-message a:hover {
+
+	font-size: 30px;
+}
+
+#login-message-title {
+
+	color: #748EF4;
+}
+
+.title-user {
+
+	padding-bottom: 40px;
+}

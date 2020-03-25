@@ -6,12 +6,14 @@
 
 
 {% block content %}
+	
+	<section class="area-message">
+		<h1 id="login-message-title">Выход из аккаунта</h1>
 
-	<h1>Выход из аккаунта</h1>
-
-	<p>
-		Вы успешно вышли из аккаунта! <br>
-		Используйте <a href="{% url 'login' %}">Вход</a>, чтобы войти снова.
-	</p>
+		<p class="login-message">
+			Вы успешно вышли из аккаунта! <br>
+			Используйте <a href="{% url 'login' %}">Вход</a>, чтобы войти снова.
+		</p>
+	</section>
 
 {% endblock %}

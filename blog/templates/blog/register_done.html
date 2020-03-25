@@ -7,11 +7,15 @@
 
 {% block content %}
 
-	<h1>Добро пожаловать{{ new_user.first_name }}!</h1>
+	<section class="area-message">
 
-	<p>
-		Ваш аккаунт успешно создан! <br>
-		Используйте <a href="{% url 'login' %}">Вход</a>, чтобы войти.
-	</p>
+		<h1 id="login-message-title">Добро пожаловать {{ new_user.first_name }}!</h1>
+
+		<p class="login-message">
+			Ваш аккаунт успешно создан! <br>
+			Используйте <a href="{% url 'login' %}">Вход</a>, чтобы войти.
+		</p>
+
+	</section>
 
 {% endblock %}

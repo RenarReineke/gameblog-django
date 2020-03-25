@@ -6,49 +6,47 @@
 
 
 {% block content %}
+	<section class="area-message">
+		<h1 id="login-message-title">Вход в аккаунт</h1>
 
-	<h1>Вход в аккаунт</h1>
+		{% if form.errors %}
 
-	{% if form.errors %}
+			<p class="login-message">
+				Логин и пароль не верны!
+			</p>
 
-		<p>
-			Логин и пароль не верны!
+		{% else %}
+
+			<p class="login-message">
+				Используйте форму для входа.<br>
+				Если у вас еще нет аккаунта, то пройдите регистрацию <a href="{% url 'register' %}"><b>здесь</b></a>
+			</p>
+
+		{% endif %}
+
+
+		<form class="post-create-form" action="{% url 'login' %}" method="post">
+
+			{% csrf_token %}
+
+			<input type="hidden" name="text" value="{{ next }}">
+
+			<div class="edit-profil-form">
+
+				{{ form }}
+
+			</div>
+
+			<button class="post-create-form__button" type="submit">
+				Войти
+			</button>
+			
+		</form>
+
+		<p class="login-message">
+			<a href="{% url 'password_reset' %}">Забыли пароль?</a>
 		</p>
-
-	{% else %}
-
-		<p>
-			Используйте форму для входа.
-		</p>
-		<p>
-			Если у вас еще нет аккаунта, то пройдите регистрацию <a href="{% url 'register' %}"><b>здесь</b></a>
-		</p>
-
-	{% endif %}
-
-
-	<form class="post-create-form" action="{% url 'login' %}" method="post">
-
-		{% csrf_token %}
-
-		<input type="hidden" name="text" value="{{ next }}">
-
-		<div class="edit-profil-form">
-
-			{{ form }}
-
-		</div>
-
-		<button class="post-create-form__button" type="submit">
-			Войти
-		</button>
-		
-	</form>
-
-	<p>
-		<a href="{% url 'password_reset' %}">Забыли пароль?</a>
-	</p>
-		
+	</section>
 
 
 
