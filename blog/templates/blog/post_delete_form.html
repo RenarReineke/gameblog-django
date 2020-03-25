@@ -1,0 +1,35 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Удаление статьи {{post.title|title}} - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+
+	<form class="post-create-form" action="{{ post.get_delete_url }}" method="post">
+
+		{% csrf_token %}
+
+
+		<h2>Вы хотите удалить статью <b>{{ post.title|title }}</b>?</h2>
+
+		<div class="post-delete-form-wrapper">
+
+			<button class="post-create-form__button" type="submit">
+				Удалить
+			</button>
+
+			<a class="post-create-form__button link-delete-form" href="{{ post.get_absolute_url }}">Отмена</a>
+
+		</div>
+		
+	</form>
+		
+
+
+
+
+
+{% endblock %}

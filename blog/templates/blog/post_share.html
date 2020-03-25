@@ -1,0 +1,47 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Поделиться {{post.title|title}} - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+
+	{% if sent %}
+	<h1>Письмо успешно отправлено!</h1>
+	<p class="successfully_share">Статья {{post.title}} отправлена по адресу:<br> {{form.recipient}}</p>
+	<a class="post-create-form__button successfully_share__button" href="{{post.get_absolute_url}}">
+		Окай!!!
+	</a>
+
+	{% else %}
+
+		<h1>Отправить статью {{post.title}} по емайл:</h1>
+
+		<form class="post-create-form" action="." method="post">
+
+			{% csrf_token %}
+			
+			{% for field in form %}
+				
+				<div class="post-create-form-wrapper">
+					{{ field.label }}
+					<br>
+					{{ field }}
+				</div>
+
+			{% endfor %}
+			
+
+			<button class="post-create-form__button" type="submit">
+				Отправить
+			</button>
+		
+		</form>
+
+	
+	{% endif %}
+
+
+{% endblock %}

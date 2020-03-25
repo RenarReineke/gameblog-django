@@ -1,0 +1,224 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Gameblog{% endblock %}</title>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Philosopher:400,700&display=swap&subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+	<header class="header container">
+		<img class="logo header__logo" src="{% static 'blog/images/logo.jpg' %}">
+		<nav class="main-nav header__nav">
+			<ul class="main-nav-list">
+				<li class="main-nav-item"><a class="main-nav-link" href="{% url 'posts_list_url' %}">Главная</a></li>
+
+				<li class="main-nav-item item-list">
+
+					<a class="main-nav-link" href="{% url 'tags_list_url' %}">
+						Категории
+					</a>
+
+					<ul class="main-nav-item__tags-list">
+						{% for tag in tags %}
+							<li>
+								<a href="{{ tag.get_absolute_url }}">	
+										{{ tag }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+
+				</li>
+
+				<li class="main-nav-item"><a class="main-nav-link" href="{% url 'users_list' %}">Авторы</a></li>
+				<li class="main-nav-item"><a class="main-nav-link" href="#">Галерея</a></li>
+			</ul>
+		</nav>
+		<ul class="login-list header__login">
+			<li class="login-item">
+
+				{% if request.user.is_authenticated %}
+					<div class="login-wrapper">
+
+						<a class="login-link" href="#">
+							<span><b>{{user.username|title}}</b></span>
+							<img src="{% if user.profile.foto %} {{ user.profile.foto.url }} {% else %} {% static 'blog/images/enter.png' %} {% endif %}">
+						</a>
+						<a class="login-link" href="{% url 'logout' %}">
+							<span>Выйти</span>
+							<img src="{% static 'blog/images/exit.jpg' %}" alt="Фото пользователя">
+						</a>
+
+					</div>
+
+				{% else %}
+
+					<div class="login-wrapper">
+
+						<a class="login-link" href="{% url 'login' %}">
+							<span><b>Имя</b></span>
+							<img src="{% static 'blog/images/enter.png' %}" alt="Фото пользователя">
+						</a>
+						<a class="login-link" href="{% url 'login' %}">
+							<span>Войти</span>
+							<img src="{% static 'blog/images/exit.jpg' %}" alt="Фото пользователя">
+						</a>
+
+					</div>
+					
+				{% endif %}
+
+			</li>
+		</ul>
+	</header>
+
+	<section class="search container">
+		<form class="search-form" action="{% url 'posts_list_url' %}" method="get">
+
+			<input class="search-form__input" type="search" placeholder="Введите текст для поиска" name="search">
+			<button class="search-form__button" type="submit">Найти</button>
+			
+		</form>
+	</section>
+
+	<main class="main container">
+		
+		<div class="main-wrapper">
+			<section class="home_user">
+				<h2>{{profile.user.username|title}}</h2>
+				<img class="posts-img" id="users-list__foto" src="{% if profile.foto %} {{ profile.foto.url }} {% else %} {% static 'blog/images/enter.png' %} {% endif %}">
+				<a class="home_user-link" href="{% url 'edit' %}"><b>Редактировать</b></a>
+				<a class="home_user-link" href="{% url 'password_change' %}"><b>Сменить пароль</b></a>
+				<span class="home_user--date">Дата рождения:<br>{{ profile.date_of_birth }}</span>
+				<span class="home_user--date">Регистрация:<br>{{ profile.user.date_joined  }}</span>
+				{% if profile.user.is_staff %}
+					<span class="home_user--date">Персонал</span>
+				{% else %}
+					<span class="home_user--date">Пользователь</span>
+				{% endif %}
+
+				{% if profile.user.is_activ %}
+					<span class="home_user--date">Активный</span>
+				{% else %}
+					<span class="home_user--date">Забанен</span>
+				{% endif %}
+
+			</section>
+
+
+
+			<section class="posts">
+				
+					<h2>Ваши статьи</h2>
+
+					<ul class="posts-list">
+						{% for post in profile.user.posts.all %}
+							<li class="posts-item home_user-item">
+								<article class="posts-article">
+									<a class="posts-link" href="{{ post.get_absolute_url }}">
+
+										<img class="posts-img" src="{{ post.image.url }}">
+										<h1>{{post.title}}</h1>
+										
+									</a>
+									
+									
+								</article>
+							</li>
+						{% endfor %}
+					</ul>
+
+				</section>
+
+				{% if is_paginated %}
+
+					<ul class="paginations-list">
+						<li class="paginations-item {% if not prev_url %}disabled{% endif %}">
+							<a href="{{ prev_url }}" class="paginations-button">
+								Назад
+							</a>
+						</li>
+
+
+						{% for n in page.paginator.page_range %}
+
+							{% if page.number == n %}
+
+								<li class="paginations-item">
+									<a href="?page={{ n }}" class="paginations-button paginations-button__current">
+										{{ n }}
+									</a>
+								</li>
+
+							{% elif n > page.number|add:-3 and n < page.number|add:3 %}
+
+								<li class="paginations-item">
+									<a href="?page={{ n }}" class="paginations-button">
+										{{ n }}
+									</a>
+								</li>
+
+							{% endif %}
+
+						{% endfor %}
+
+
+						<li class="paginations-item {% if not next_url %}disabled{% endif %}">
+							<a href="{{ next_url }}" class="paginations-button paginations-button__last">
+								Вперед
+							</a>
+						</li>
+					</ul>
+
+				{% endif %}
+				
+
+			</section>
+		</div>
+
+		{% if request.user.is_authenticated and request.user.is_staff %}
+			<section class="admin-panel">
+
+				<a class="admin-panel__link  admin-panel__link--admin" href="/admin">Админка</a>
+
+				{% block admin-panel %}
+				
+				{% endblock %}
+
+			</section>
+		{% endif %}
+
+	</main>
+
+
+	<footer class="footer container">
+
+		<section class="conacts">
+			<p>
+				<b>Контакты:</b><br>Мой адрес не дом и не улица<br>Глубинка Мордора
+			</p>
+		</section>
+
+		<section class="social">
+			<ul class="social-list">
+				<li class="social-item">
+					<a class="social-link" href="#"><img src=""><span>Фейсбук</span></a>
+				</li>
+				<li class="social-item">
+					<a class="social-link" href="#"><img src=""><span>Инстаграмм</span></a>
+				</li>
+				<li class="social-item">
+					<a class="social-link" href="#"><img src=""><span>Вконтакте</span></a>
+				</li>
+			</ul>
+		</section>
+
+	</footer>
+	
+
+
+</body>
+</html>

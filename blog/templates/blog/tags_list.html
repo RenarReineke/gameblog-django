@@ -1,0 +1,25 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Категории - {{ block.super }}
+{% endblock %}
+
+
+
+
+{% block content %}
+	
+	<h1>Категории:</h1>
+	<div class="tags-list-wrapper">
+		{% for tag in tags %}
+			<article class="tags-list-article">
+				<a class="tags-list-link" href="{{ tag.get_absolute_url }}">
+
+					<h2>{{tag.title}}</h2>
+					
+				</a>
+			</article>
+		{% endfor %}
+	</div>
+
+{% endblock %}

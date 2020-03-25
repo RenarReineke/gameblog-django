@@ -1,0 +1,37 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Редактирование профиля - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+	<h1>Редактирование профиля</h1>
+
+	<p>
+		Используйте эту форму для редактирования профиля.
+	</p>
+
+
+	<form class="post-create-form" action="." method="post" enctype="multipart/form-data">
+
+		{% csrf_token %}
+
+		<div class="edit-profil-form">
+			{{ user_form }}
+		</div>
+		<div class="edit-profil-form">
+			{{ profile_form }}
+		</div>
+	
+		<button class="post-create-form__button" type="submit">
+			Ok
+		</button>
+
+		
+
+		
+	</form>
+		
+{% endblock %}

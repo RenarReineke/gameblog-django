@@ -1,0 +1,45 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Создание статьи {{post.title|title}} - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+
+	<form class="post-create-form" action="{% url 'post_create_url' %}" method="post" enctype="multipart/form-data">
+
+		{% csrf_token %}
+
+		{{ message_error_create_form }}<br>
+
+		{% for field in postform %}
+
+			{% if field.errors %}
+
+				{{ field.errors }}
+
+			{% endif %}
+			
+			<div class="post-create-form-wrapper">
+				{{ field.label }}
+				<br>
+				{{ field }}
+			</div>
+			
+
+		{% endfor %}
+
+		<button class="post-create-form__button" type="submit">
+			Применить
+		</button>
+		
+	</form>
+		
+
+
+
+
+
+{% endblock %}

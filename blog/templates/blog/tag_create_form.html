@@ -1,0 +1,47 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Создание тэга {{tag.title|title}} - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+
+	<form class="post-create-form" action="{% url 'tag_create_url' %}" method="post">
+
+		{% csrf_token %}
+
+		{{ message_error_create_form }}<br>
+
+
+		{% for field in tagform %}
+
+			{% if field.errors %}
+
+				{{ field.errors }}
+
+			{% endif %}
+
+			
+
+			<div class="post-create-form-wrapper">
+				{{ field.label }}
+				<br>
+				{{ field }}
+			</div>
+
+		{% endfor %}
+
+		<button class="post-create-form__button" type="submit">
+			Применить
+		</button>
+		
+	</form>
+		
+
+
+
+
+
+{% endblock %}

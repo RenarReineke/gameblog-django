@@ -1,0 +1,17 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Выход - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+	<h1>Выход из аккаунта</h1>
+
+	<p>
+		Вы успешно вышли из аккаунта! <br>
+		Используйте <a href="{% url 'login' %}">Вход</a>, чтобы войти снова.
+	</p>
+
+{% endblock %}

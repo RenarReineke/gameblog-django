@@ -1,0 +1,97 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	{{ post.title }}-{{ block.super }}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+	<article class="post">
+		<h1>{{post.title}}</h1>
+		<img src="{{ post.image.url }}" alt="Картинка статьи">
+		<p class="post-description--card">{{post.body}}</p>
+		<div class="post-description--meta--card">
+			<p class="post-tags--card">
+				<span>Тэг: <br></span>
+				{% for tag in post.tag.all %}
+					<a class="post-tags__link" href="{{ tag.get_absolute_url }}">
+						<span>{{ tag }}; </span>
+					</a>
+				{% endfor %}
+			</p>
+			<p class="post-author--card">
+				<span>Автор: </span><br>
+				<a class="post-tags__link" href="{{ post.user.profile.get_absolute_url }}">
+					<span>{{ post.user }}</span>
+				</a>
+			</p>
+			<p class="post-data--card"><span>Дата публикации: </span><br><span>{{post.date}}</span></p>
+			<p class="post-data--card"><span>Ссылка на источник: </span><br><a href="{{post.link}}">ТЫК</a></p>
+		</div>
+
+		<a class="admin-panel__link admin-panel__link--edit post-card-admin-edit" href="{% url 'post_update_url' slug=post.slug %}">Редактировать статью</a>
+		<a class="admin-panel__link admin-panel__link--delete post-card-admin-delete" href="{% url 'post_delete_url' slug=post.slug %}">Удалить статью</a>
+		<a class="admin-panel__link admin-panel__link--delete post-card-admin-share" href="{% url 'post_share' slug=post.slug %}">Поделиться по емайл</a>
+
+
+
+		
+		<section class="comment">
+			
+			<p> Количество комментариев: {{comments.count}} </p>
+			
+			
+			{% for comment in comments %}
+				<div class="comment-text">
+					<p class="comment-text__body" >{{comment.body}}</p>
+					<div class="comment-text__wrapper">
+						<p>
+							От:
+							<a class="post-tags__link" href="{{ comment.user.profile.get_absolute_url }}">
+								<span>{{ comment.user }}</span>
+							</a>
+						</p>
+						<p>{{comment.created}}</p>
+					</div>
+					<a class="admin-panel__link admin-panel__link--delete post-card-admin-delete comment-delete-button" href="{% url 'comment_delete_url' id=comment.id %}">
+						Удалить
+					</a>
+				</div>
+			{% endfor %}
+			
+
+
+			
+			<h2>Написать комментарий:</h2>
+			<form class="post-create-form" action="." method="post">
+
+				{% csrf_token %}
+
+				{% for field in comment_form %}
+
+					{% if field.errors %}
+
+						{{ field.errors }}
+
+					{% endif %}
+
+					<div class="post-create-form-wrapper post_comment_form">
+						{{ field.label }}<br>
+						{{ field }}
+					</div>
+
+				{% endfor %}
+
+				<button class="post-create-form__button post_comment_form__button" type="submit">
+					Добавить
+				</button>
+			</form>
+			
+		</section>
+		
+	</article>
+
+{% endblock %}

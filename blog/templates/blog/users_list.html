@@ -1,0 +1,65 @@
+{% extends 'blog/base_blog.html' %}
+
+{% load static %}
+
+{% block title %}
+	Пользователи - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+
+	<h2>Список пользователей</h2>
+
+	{% if request.user.is_authenticated %}
+		<ul class="posts-list">
+			{% for profile in profiles %}
+				<li class="posts-item home_user-item">
+					<article class="posts-article">
+						<a class="posts-link" href="{{ profile.get_absolute_url }}">
+
+							<img class="posts-img" id="users-list__foto" src="{% if profile.foto %} {{ profile.foto.url }} {% else %} {% static 'blog/images/enter.png' %} {% endif %}">
+							<h1>{{profile.user.username|title}}</h1>
+							<p id="users-list__title">
+								{{ profile.user.date_joined }}
+							</p>
+
+							{% if profile.user.is_staff %}
+								<p id="users-list__title">
+									Роль: Персонал
+								</p>
+							{% else %}
+								<p id="users-list__title">
+									Роль: Пользователь
+								</p>
+							{% endif %}
+
+							{% if profile.user.is_activ %}
+								<p id="users-list__title">
+									Статус: Активный
+								</p>
+							{% else %}
+								<p id="users-list__title">
+									Статус: Забанен
+								</p>
+							{% endif %}
+						</a>
+						
+						
+					</article>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+
+		<p>
+			<span>Эта страница доступна только зарегистрированным пользователям.</span>><br>
+			<span>
+				<a href="{% url 'login' %}"><b>Авторизируйтесь</b></a> или <a href="{% url 'register' %}"><b>Зарегистрируйтесь</b></a>
+			</span>
+
+		</p>
+	{% endif %}
+
+
+{% endblock %}

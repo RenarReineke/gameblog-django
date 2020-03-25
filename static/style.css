@@ -1,0 +1,413 @@
+body {
+	margin: 0;
+	padding: 0;
+
+	background-color: #A5A398;
+
+	font-family: 'Philosopher', sans-serif;
+
+	font-size: 24px;
+	line-height: 30px;
+}
+
+a {
+	text-decoration: none;
+
+	color: #000000;
+	font: inherit;
+}
+
+img {
+	width: 200px;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+
+	text-align: center;
+}
+
+h1 {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.post_list h1 {
+	margin: 20px 0;
+}
+
+
+
+
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #E8CE6E;
+}
+
+.header {
+	padding: 40px 0;
+
+	display: flex;
+	justify-content: space-between;
+
+	background-color: #6A84BD;
+}
+
+.header__logo {
+	width: 100px;
+}
+.header__nav{
+	width: 1000px;
+}
+.header__login {
+	width: 100px;
+}
+
+.main-nav {
+	padding: 20px;
+}
+
+.main-nav-list {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	display: flex;
+	justify-content: space-between;
+}
+.main-nav-item {
+	max-width: 250px;
+	
+}
+
+.main-nav-link {
+
+	padding: 15px;
+
+	border: 2px solid;
+	border-radius: 15px;
+
+	background-color: #44ADDC;
+
+	font-weight: bold;
+}
+
+.login-list {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+}
+
+.login-item {
+
+	border: 2px solid;
+	border-radius: 15px;
+
+	background-color: #44ADDC;
+
+	font-weight: bold;
+}
+.search {
+
+	padding: 20px 0;
+
+	background-color: #5A6776;
+}
+
+.search-form {
+	width: 800px;
+	height: 80px;
+
+	margin-left: 200px;
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+
+	border: 5px solid #384657;
+	border-radius: 15px;
+	
+}
+
+.search-form__input {
+
+	padding-left: 20px;
+
+	border: 0;
+	border-radius: 10px 10px 0 0;
+
+	width: 800px;
+	height: 40px;
+
+	font-size: 24px;
+
+	text-align: center;
+}
+
+.search-form__button {
+	padding: 0;
+
+	border: 0;
+	border-radius: 0 0 10px 10px;
+
+	width: 800px;
+	height: 40px;
+
+	font-size: 24px;
+
+	background-color: #86A7CB;
+
+	cursor: pointer;
+}
+
+
+
+
+.main {
+	padding: 20px 0;
+}
+
+.main-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.aside {
+	box-sizing: border-box;
+
+	margin-top: 130px;
+	padding: 10px;
+
+	width: 200px;
+	height: 540px;
+
+	background-color: #70C689;
+
+	border: 3px solid #1B311E;
+	border-radius: 10px;
+
+	
+	
+}
+
+.aside h2 {
+	word-wrap:break-word;
+
+	box-sizing: border-box;
+	padding: 10px;
+
+	font-size: 26px;
+	line-height: 30px;
+
+	border: 2px solid;
+	border-radius: 10px;
+
+	background-color: #44ADDC;
+	
+}
+
+.aside-list {
+	margin: 0;
+	padding: 10px;
+	list-style: none;
+
+	font-size: 24px;
+	line-height: 28px;
+
+	word-wrap:break-word;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.aside-item {
+	padding: 0;
+	margin: 0;
+
+	
+}
+
+.aside-link {
+	display: block;
+
+	padding: 10px;
+
+	margin-top: 10px;
+
+	text-align: center;
+
+	border: 2px solid;
+	border-radius: 5px;
+
+	background-color: #296752;
+	color: #000000;
+}
+
+.posts {
+	width: 1000px;
+	padding: 40px;
+}
+
+.post {
+	width: 1000px;
+	padding: 40px;
+}
+
+.posts-list {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	display: flex;
+	flex-wrap: wrap;
+}
+.posts-item {
+	box-sizing: border-box;
+
+	padding: 20px;
+
+	width: 460px;
+
+	border: 3px solid black;
+	border-radius: 10px;
+
+	background-color: #81E5DF;
+}
+
+.posts-article {
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+.posts-link img{
+	width: 416px;
+	height: 234px;
+	
+
+}
+
+
+
+.paginations-list {
+	margin: 0;
+	padding: 0;
+	padding-top: 40px;
+
+	width: auto;
+
+	list-style: none;
+
+
+	display: flex;
+
+	
+}
+
+.paginations-item, .paginations-button {
+	width: 100px;
+	height: 60px;
+
+	font-size: 30px;
+
+	
+}
+
+.paginations-item {
+	margin: 5px;
+
+}
+
+
+
+.paginations-button {
+
+	padding: 5px;
+	padding-top: 10px;
+
+	display: block;
+	box-sizing: border-box;
+
+	border: 3px solid #000000;
+	border-radius: 10px;
+
+	cursor: pointer;
+
+	text-align: center;
+
+	background-color: #B3E4E0;
+
+}
+
+.paginations-button__current {
+
+	background-color: #0361D2;
+
+	font-weight: bold;
+
+	border: 5px solid #000000;
+}
+
+.paginations-item:first-child a {
+	width: auto;
+}
+
+.paginations-item:last-child a {
+	width: auto;
+
+}
+
+.paginations-button__last {
+	width: 100%;
+}
+
+
+.disabled {
+
+	position: absolute;
+
+	z-index: -100;
+
+}
+
+
+
+.footer {
+	box-sizing: border-box;
+
+	padding: 20px;
+
+	background-color: #EA6616;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.conacts {
+	width: 580px;
+}
+.social {
+	width: 580px;
+}
+
+.social-list {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.social-item {
+	width: 100px;
+}

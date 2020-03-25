@@ -1,0 +1,36 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Регистрация - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+	<h1>Создать аккаунт</h1>
+
+	<p>
+		Заполните эту форму для регистрации на сайте.
+	</p>
+
+
+	<form class="post-create-form" action="." method="post">
+
+		{% csrf_token %}
+
+		
+		<div class="edit-profil-form">
+
+			{{ user_form }}
+
+		</div>
+			<button class="post-create-form__button" type="submit">
+				Ok
+			</button>
+
+		
+
+		
+	</form>
+		
+{% endblock %}

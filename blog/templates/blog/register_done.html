@@ -1,0 +1,17 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+	Добро пожаловать - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+	<h1>Добро пожаловать{{ new_user.first_name }}!</h1>
+
+	<p>
+		Ваш аккаунт успешно создан! <br>
+		Используйте <a href="{% url 'login' %}">Вход</a>, чтобы войти.
+	</p>
+
+{% endblock %}
