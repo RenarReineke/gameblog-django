@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import dj_database_url
+
+
+
 #from django.urls import reverse_lazy
 
 #ABSOLUTE_URL_OVVERRIDES={
@@ -101,6 +105,10 @@ DATABASES = {
         'PORT':'5432',
     }
 }
+
+
+db_from_env=dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
