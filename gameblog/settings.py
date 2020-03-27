@@ -29,9 +29,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'nt6b6nshi+u$#i+ofb&n6enk1a#z(7n3%atz$qfnev(oz=cdld'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['gameblog.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -141,6 +141,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, '/static/'),]
+STATIC_ROOT=os.path.join(BASE_DIR, 'static/')
 
 
 MEDIA_URL='/media/'
@@ -160,7 +161,7 @@ LOGIN_URL='login'
 LOGOUT_URL='logout'
 
 
-#Этот параметр разрешает использовать для хранения данных полет типа JSONB, поддерживаемое Postgress
+#Этот параметр разрешает использовать для хранения данных поле типа JSONB, поддерживаемое Postgress
 SOCIAL_AUTH_POSTGRES_JSONFIELD=True
 
 
@@ -182,12 +183,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET='8436201b3f079d38fc66c92adb858294'
 #Секретные ключи из Гугла для подключения
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='597719370099-6ia2o0bahvk2ojfbd48244fv6u9kpms1.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='o3r789lWCa4GjDGbTq8V5bbd'
-
-
-SOCIAL_AUTH_TWITTER_KEY=''
-SOCIAL_AUTH_TWITTER_SECRET=''
-
-
 
 
 
