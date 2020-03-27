@@ -18,6 +18,8 @@ import dj_database_url
 
 
 
+
+
 #from django.urls import reverse_lazy
 
 #ABSOLUTE_URL_OVVERRIDES={
@@ -58,7 +60,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    #'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
