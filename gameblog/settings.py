@@ -55,8 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'social_django',
     #приложения для создания карты сайта
-    'django.contrib.sites', #(как и в примере из инета, почему то комментирование этой строчки решило проблему DoesNotExist at /sitemap.xml/)
-    'django.contrib.sitemaps',
+    #'django.contrib.sites', #(как и в примере из инета, почему то комментирование этой строчки решило проблему DoesNotExist at /sitemap.xml/)
+    #'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -86,8 +86,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 #процессоры для авторизации через вконтакте
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
+                #'social_django.context_processors.backends',
+                #'social_django.context_processors.login_redirect',
                 
             ],
         },
