@@ -22,7 +22,10 @@
 			
 			<div class="edit-profil-form">
 
-				{{ user_form }}
+				{% for field in user_form %}
+					{{ field.label }}<br>
+					{{ field }}<br><br>
+				{% endfor %}
 
 			</div>
 				<button class="post-create-form__button" type="submit">

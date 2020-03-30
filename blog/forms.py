@@ -9,14 +9,15 @@ from .models import*
 
 
 
+
+
 class PostForm(forms.ModelForm):
 	class Meta:
 		model=Post 
-		fields=['title','slug', 'body', 'tag', 'image', 'link']
+		fields=['title', 'body', 'tag', 'image', 'link']
 
 		widgets={
 		'title':forms.TextInput(attrs={'class':'Здесь должно быть название класса для инпута'}),
-		'slug':forms.TextInput(attrs={'class':'Здесь должно быть название класса для инпута'}),
 		'body':forms.Textarea(attrs={'class':'Здесь должно быть название класса для инпута'}),
 		'tag':forms.SelectMultiple(attrs={'class':'Здесь должно быть название класса для инпута'}),
 		
@@ -36,11 +37,10 @@ class PostForm(forms.ModelForm):
 class TagForm(forms.ModelForm):
 	class Meta:
 		model=Tag 
-		fields=['title','slug']
+		fields=['title',]
 
 		widgets={
 		'title':forms.TextInput(attrs={'class':'Здесь должно быть название класса для инпута'}),
-		'slug':forms.TextInput(attrs={'class':'Здесь должно быть название класса для инпута'}),
 		}
 
 	def clean_slug(self):
@@ -86,7 +86,7 @@ class UserRegistrationForm(forms.ModelForm):
 
 	class Meta:
 		model=User
-		fields=('username', 'first_name', 'email')
+		fields=('username', 'email')
 
 
 	def clean_password2(self):
@@ -104,7 +104,7 @@ class UserEditForm(forms.ModelForm):
 
 	class Meta:
 		model=User
-		fields=('username', 'first_name', 'email')
+		fields=('username', 'email')
 
 
 
@@ -113,5 +113,8 @@ class ProfileEditForm(forms.ModelForm):
 	class Meta:
 		model=Profile
 		fields=('date_of_birth', 'foto')
+		labels={
+		'date_of_birth':'Введите дату рождения в формате число-месяц-год'
+		}
 
 

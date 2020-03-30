@@ -100,20 +100,27 @@ WSGI_APPLICATION = 'gameblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+ #       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+  #      'NAME':'gameblog',
+   #     'USER':'postgres',
+    #    'PASSWORD':'Python777',
+     #   'HOST':'127.0.0.1',
+      #  'PORT':'5432',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'gameblog',
-        'USER':'postgres',
-        'PASSWORD':'Python777',
-        'HOST':'127.0.0.1',
-        'PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':'sqlite3',
     }
 }
 
 
-db_from_env=dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+#db_from_env=dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -137,6 +144,21 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
+
+DATE_INPUT_FORMATS=[
+
+    '%Y-%m-%d', '%Y-%b-%d', '%Y-%B-%d',
+    '%Y %m %d', '%Y %b %d', '%Y %B %d',
+    '%Y/%m/%d', '%Y/%b/%d', '%Y/%B/%d',
+
+    '%d-%m-%Y', '%d-%b-%Y', '%d-%B-%Y',
+    '%d %m %Y', '%d %b %Y', '%d %B %Y',
+    '%d/%m/%Y', '%d/%b/%Y', '%d/%B/%Y',
+
+    '%m-%d-%Y', '%b-%d-%Y', '%B-%d-%Y',
+    '%m %d %Y', '%b %d %Y', '%B %d %Y',
+    '%m/%d/%Y', '%b/%d/%Y', '%B/%d/%Y',
+]
 
 LANGUAGE_CODE = 'ru-ru'
 

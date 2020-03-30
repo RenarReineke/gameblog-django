@@ -34,7 +34,7 @@
 				</li>
 
 				<li class="main-nav-item"><a class="main-nav-link" href="{% url 'users_list' %}">Авторы</a></li>
-				<li class="main-nav-item"><a class="main-nav-link" href="#">Галерея</a></li>
+				<li class="main-nav-item"><a class="main-nav-link" href="{% url 'post_feed' %}">RSS</a></li>
 			</ul>
 		</nav>
 		<ul class="login-list header__login">
@@ -94,25 +94,31 @@
 				<a class="home_user-link" href="{% url 'password_change' %}"><b>Сменить пароль</b></a>
 				<span class="home_user--date">Дата рождения:<br>{{ profile.date_of_birth }}</span>
 				<span class="home_user--date">Регистрация:<br>{{ profile.user.date_joined  }}</span>
+				<span class="home_user--date">Был в сети:<br>{{ profile.user.last_login  }}</span>
 				{% if profile.user.is_staff %}
 					<span class="home_user--date">Персонал</span>
 				{% else %}
 					<span class="home_user--date">Пользователь</span>
 				{% endif %}
 
-				{% if profile.user.is_activ %}
+				{% if profile.user.is_active %}
 					<span class="home_user--date">Активный</span>
 				{% else %}
 					<span class="home_user--date">Забанен</span>
 				{% endif %}
+				
 
 			</section>
 
 
 
 			<section class="posts">
-				
-					<h2 id="login-message-title" class="title-user">Ваши статьи</h2>
+					
+					{% if profile.user == request.user %}
+						<h2 id="login-message-title" class="title-user">Ваши статьи</h2>
+					{% else %}
+						<h2 id="login-message-title" class="title-user">Статьи пользователя</h2>
+					{% endif %}
 
 					<ul class="posts-list">
 						{% for post in profile.user.posts.all %}
@@ -200,20 +206,6 @@
 			<p>
 				<b>Контакты:</b><br>Мой адрес не дом и не улица<br>Глубинка Мордора
 			</p>
-		</section>
-
-		<section class="social">
-			<ul class="social-list">
-				<li class="social-item">
-					<a class="social-link" href="#"><img src=""><span>Фейсбук</span></a>
-				</li>
-				<li class="social-item">
-					<a class="social-link" href="#"><img src=""><span>Инстаграмм</span></a>
-				</li>
-				<li class="social-item">
-					<a class="social-link" href="#"><img src=""><span>Вконтакте</span></a>
-				</li>
-			</ul>
 		</section>
 
 	</footer>

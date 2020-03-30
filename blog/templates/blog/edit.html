@@ -1,5 +1,8 @@
 {% extends 'blog/base_blog.html' %}
 
+{% load static %}
+
+
 {% block title %}
 	Редактирование профиля - {{ block.super }}
 {% endblock %}
@@ -20,10 +23,21 @@
 			{% csrf_token %}
 
 			<div class="edit-profil-form">
-				{{ user_form }}
+				{% for field in user_form %}
+					{{ field.label }}<br>
+					{{ field }}<br><br>
+				{% endfor %}
 			</div>
 			<div class="edit-profil-form">
-				{{ profile_form }}
+
+				{% for field in profile_form %}
+					{{ field.label }}<br>
+					{{ field }}
+				{% endfor %}
+				
+				
+				
+				
 			</div>
 		
 			<button class="post-create-form__button" type="submit">

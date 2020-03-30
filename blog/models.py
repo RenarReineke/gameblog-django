@@ -71,7 +71,7 @@ class Post(models.Model):
 
 class Tag(models.Model):
 	title=models.CharField(max_length=50, db_index=True, verbose_name='Тэг')
-	slug=models.SlugField(max_length=50, unique=True, verbose_name='Слаг')
+	slug=models.SlugField(max_length=50, blank=True, unique=True, verbose_name='Слаг')
 	user=models.ForeignKey(
 		User, on_delete=models.CASCADE,
 		verbose_name='Автор', related_name='tags',
@@ -79,6 +79,13 @@ class Tag(models.Model):
 		)
 	
 	
+	def save(self, *args, **kwargs):
+		if not self.slug:
+			self.slug=gen_slug(self.title)
+
+		super().save(*args, **kwargs)
+
+
 
 	def __str__(self):
 		return f'{self.title}'

@@ -20,9 +20,7 @@
 
 							<img class="posts-img" id="users-list__foto" src="{% if profile.foto %} {{ profile.foto.url }} {% else %} {% static 'blog/images/enter.png' %} {% endif %}">
 							<h1>{{profile.user.username|title}}</h1>
-							<p id="users-list__title">
-								{{ profile.user.date_joined }}
-							</p>
+							
 
 							{% if profile.user.is_staff %}
 								<p id="users-list__title">
@@ -34,7 +32,7 @@
 								</p>
 							{% endif %}
 
-							{% if profile.user.is_activ %}
+							{% if profile.user.is_active %}
 								<p id="users-list__title">
 									Статус: Активный
 								</p>

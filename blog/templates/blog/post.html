@@ -29,11 +29,15 @@
 				</a>
 			</p>
 			<p class="post-data--card"><span>Дата публикации: </span><br><span>{{post.date}}</span></p>
-			<p class="post-data--card"><span>Ссылка на источник: </span><br><a href="{{post.link}}">ТЫК</a></p>
+
+			{% if post.link %}
+				<p class="post-data--card"><span>Ссылка на источник: </span><br><a href="{{post.link}}">ТЫК</a></p>
+			{% else %}
+				<p class="post-data--card"><span>Ссылка на источник: </span><br><a href="#"></a>Отсутствует</p>
+			{% endif %}
 		</div>
 
-		<a class="admin-panel__link admin-panel__link--edit post-card-admin-edit" href="{% url 'post_update_url' slug=post.slug %}">Редактировать статью</a>
-		<a class="admin-panel__link admin-panel__link--delete post-card-admin-delete" href="{% url 'post_delete_url' slug=post.slug %}">Удалить статью</a>
+		
 		<a class="admin-panel__link admin-panel__link--delete post-card-admin-share" href="{% url 'post_share' slug=post.slug %}">Поделиться по емайл</a>
 
 
@@ -64,31 +68,32 @@
 			
 
 
-			
-			<h2>Написать комментарий:</h2>
-			<form class="post-create-form" action="." method="post">
+			{% if request.user.is_authenticated %}
+				<h2>Написать комментарий:</h2>
+				<form class="post-create-form" action="." method="post">
 
-				{% csrf_token %}
+					{% csrf_token %}
 
-				{% for field in comment_form %}
+					{% for field in comment_form %}
 
-					{% if field.errors %}
+						{% if field.errors %}
 
-						{{ field.errors }}
+							{{ field.errors }}
 
-					{% endif %}
+						{% endif %}
 
-					<div class="post-create-form-wrapper post_comment_form">
-						{{ field.label }}<br>
-						{{ field }}
-					</div>
+						<div class="post-create-form-wrapper post_comment_form">
+							{{ field.label }}<br>
+							{{ field }}
+						</div>
 
-				{% endfor %}
+					{% endfor %}
 
-				<button class="post-create-form__button post_comment_form__button" type="submit">
-					Добавить
-				</button>
-			</form>
+					<button class="post-create-form__button post_comment_form__button" type="submit">
+						Добавить
+					</button>
+				</form>
+			{% endif %}
 			
 		</section>
 		
