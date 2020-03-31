@@ -17,29 +17,30 @@
 
 	{% else %}
 
-		<h1>Отправить статью {{post.title}} по емайл:</h1>
+		<section class="area-message">
+			<h1>Отправить статью {{post.title}} по емайл:</h1>
 
-		<form class="post-create-form" action="." method="post">
+			<form class="post-create-form" action="." method="post">
 
-			{% csrf_token %}
-			
-			{% for field in form %}
+				{% csrf_token %}
 				
-				<div class="post-create-form-wrapper">
-					{{ field.label }}
-					<br>
-					{{ field }}
-				</div>
+				{% for field in form %}
+					
+					<div class="post-create-form-wrapper">
+						{{ field.label }}
+						<br>
+						{{ field }}
+					</div>
 
-			{% endfor %}
+				{% endfor %}
+				
+
+				<button class="post-create-form__button" type="submit">
+					Отправить
+				</button>
 			
-
-			<button class="post-create-form__button" type="submit">
-				Отправить
-			</button>
-		
-		</form>
-
+			</form>
+		</section>
 	
 	{% endif %}
 

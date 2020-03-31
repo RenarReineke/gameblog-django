@@ -16,19 +16,19 @@
 			{% for profile in profiles %}
 				<li class="posts-item home_user-item">
 					<article class="posts-article">
-						<a class="posts-link" href="{{ profile.get_absolute_url }}">
+						<a class="posts-link" id="posts-link__home" href="{{ profile.get_absolute_url }}">
 
 							<img class="posts-img" id="users-list__foto" src="{% if profile.foto %} {{ profile.foto.url }} {% else %} {% static 'blog/images/enter.png' %} {% endif %}">
-							<h1>{{profile.user.username|title}}</h1>
+							<h1 id="profile_user_username">{{profile.user.username|title}}</h1>
 							
 
 							{% if profile.user.is_staff %}
 								<p id="users-list__title">
-									Роль: Персонал
+									Персонал
 								</p>
 							{% else %}
 								<p id="users-list__title">
-									Роль: Пользователь
+									Пользователь
 								</p>
 							{% endif %}
 

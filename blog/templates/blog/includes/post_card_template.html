@@ -11,17 +11,24 @@
 
 <li class="posts-item">
 	<article class="posts-article">
-		
+		<div class="post-description--meta">
+			<p class="post-author">
+				<a class="post-tags__link" href="{{ post.user.profile.get_absolute_url }}">
+					<span>{{ post.user }}</span>
+				</a>
+			</p>
+			<p class="post-data"><span class="post-tags__link">{{post.date}}</span></p>
+		</div>
 		<a class="posts-link" href="{{ post.get_absolute_url }}">
 
 			<img class="posts-img" src="{{ post.image.url }}">
 			<h1>{{post.title}}</h1>
-			<div class="post-description">{{post.body|truncatewords:15}}</div>
+			<div class="post-description">{{post.body|truncatewords:10}}</div>
 		</a>
-		<div class="post-description--meta">
+		<div class="post-description--meta" id="post-description--info">
 			<p class="post-tags">
 				Тэги: 
-				
+				<br>
 				{% for tag in post.tag.all %}
 					<a class="post-tags__link" href="{{ tag.get_absolute_url }}">
 						<span>{{ tag }} </span>
@@ -29,14 +36,13 @@
 				{% endfor %}
 				
 			</p>
-			<p class="post-comments"><span>Количество комментариев: </span><span class="post-tags__link">{{post.comments.count}}</span></p>
-			<p class="post-data"><span>Опубликовано: <br></span><span class="post-tags__link">{{post.date}}</span></p>
-			<p class="post-author">
-				<span>Автор: </span>
-				<a class="post-tags__link" href="{{ post.user.profile.get_absolute_url }}">
-					<span>{{ post.user }}</span>
-				</a>
+
+			<p class="post-comments">
+				<span class="post-tags__link" id="post-tags__link--comments">
+					{{post.comments.count}}
+				</span>
 			</p>
+			
 		</div>
 		
 	</article>

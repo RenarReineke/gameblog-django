@@ -7,25 +7,26 @@
 
 {% block content %}
 
+	<section class="area-message">
+		<form class="post-create-form" action="{{ post.get_delete_url }}" method="post">
 
-	<form class="post-create-form" action="{{ post.get_delete_url }}" method="post">
-
-		{% csrf_token %}
+			{% csrf_token %}
 
 
-		<h2>Вы хотите удалить статью <b>{{ post.title|title }}</b>?</h2>
+			<h2>Вы хотите удалить статью <b>{{ post.title|title }}</b>?</h2>
 
-		<div class="post-delete-form-wrapper">
+			<div class="post-delete-form-wrapper">
 
-			<button class="post-create-form__button" type="submit">
-				Удалить
-			</button>
+				<button class="post-create-form__button" type="submit">
+					Удалить
+				</button>
 
-			<a class="post-create-form__button link-delete-form" href="{{ post.get_absolute_url }}">Отмена</a>
+				<a class="post-create-form__button link-delete-form" id="button--delete" href="{{ post.get_absolute_url }}">Отмена</a>
 
-		</div>
-		
-	</form>
+			</div>
+			
+		</form>
+	</section>
 		
 
 

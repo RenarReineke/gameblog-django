@@ -7,37 +7,38 @@
 
 {% block content %}
 
+	<section class="area-message">
+		<form class="post-create-form" action="{% url 'tag_create_url' %}" method="post">
 
-	<form class="post-create-form" action="{% url 'tag_create_url' %}" method="post">
+			{% csrf_token %}
 
-		{% csrf_token %}
-
-		{{ message_error_create_form }}<br>
+			{{ message_error_create_form }}<br>
 
 
-		{% for field in tagform %}
+			{% for field in tagform %}
 
-			{% if field.errors %}
+				{% if field.errors %}
 
-				{{ field.errors }}
+					{{ field.errors }}
 
-			{% endif %}
+				{% endif %}
 
+				
+
+				<div class="post-create-form-wrapper">
+					{{ field.label }}
+					<br>
+					{{ field }}
+				</div>
+
+			{% endfor %}
+
+			<button class="post-create-form__button" type="submit">
+				Применить
+			</button>
 			
-
-			<div class="post-create-form-wrapper">
-				{{ field.label }}
-				<br>
-				{{ field }}
-			</div>
-
-		{% endfor %}
-
-		<button class="post-create-form__button" type="submit">
-			Применить
-		</button>
-		
-	</form>
+		</form>
+	</section>
 		
 
 

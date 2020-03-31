@@ -10,37 +10,50 @@
 
 {% block content %}
 	<article class="post">
+		<div class="post-description--meta--card">
+			<p class="post-author--card">
+				<a class="post-tags__link" href="{{ post.user.profile.get_absolute_url }}">
+					<span>{{ post.user }}</span>
+				</a>
+			</p>
+			<p class="post-data--card"> | <span>{{post.date}}</span></p>
+		</div>
 		<h1>{{post.title}}</h1>
 		<img src="{{ post.image.url }}" alt="Картинка статьи">
 		<p class="post-description--card">{{post.body}}</p>
-		<div class="post-description--meta--card">
+		<div class="post-description--meta--card" id="post-description--info2">
+
+			{% if post.link %}
+				<p class="post-data--card admin-panel__link admin-panel__link--delete" id="post-card-url">
+					<a href="{{post.link}}">
+						Источник
+					</a>
+				</p>
+			{% else %}
+				<a class="disabled">
+					
+				</a>
+			{% endif %}
+
+			
+			<a class="admin-panel__link admin-panel__link--delete" id="post-card-admin-share" href="{% url 'post_share' slug=post.slug %}">
+				Поделиться по емайл
+			</a>
+			
+
+
 			<p class="post-tags--card">
-				<span>Тэг: <br></span>
+				
 				{% for tag in post.tag.all %}
 					<a class="post-tags__link" href="{{ tag.get_absolute_url }}">
 						<span>{{ tag }}; </span>
 					</a>
 				{% endfor %}
 			</p>
-			<p class="post-author--card">
-				<span>Автор: </span><br>
-				<a class="post-tags__link" href="{{ post.user.profile.get_absolute_url }}">
-					<span>{{ post.user }}</span>
-				</a>
-			</p>
-			<p class="post-data--card"><span>Дата публикации: </span><br><span>{{post.date}}</span></p>
+			
 
-			{% if post.link %}
-				<p class="post-data--card"><span>Ссылка на источник: </span><br><a href="{{post.link}}">ТЫК</a></p>
-			{% else %}
-				<p class="post-data--card"><span>Ссылка на источник: </span><br><a href="#"></a>Отсутствует</p>
-			{% endif %}
+			
 		</div>
-
-		
-		<a class="admin-panel__link admin-panel__link--delete post-card-admin-share" href="{% url 'post_share' slug=post.slug %}">Поделиться по емайл</a>
-
-
 
 		
 		<section class="comment">
@@ -50,16 +63,16 @@
 			
 			{% for comment in comments %}
 				<div class="comment-text">
-					<p class="comment-text__body" >{{comment.body}}</p>
 					<div class="comment-text__wrapper">
 						<p>
-							От:
 							<a class="post-tags__link" href="{{ comment.user.profile.get_absolute_url }}">
 								<span>{{ comment.user }}</span>
 							</a>
 						</p>
 						<p>{{comment.created}}</p>
 					</div>
+					<p class="comment-text__body" >{{comment.body}}</p>
+					
 					<a class="admin-panel__link admin-panel__link--delete post-card-admin-delete comment-delete-button" href="{% url 'comment_delete_url' id=comment.id %}">
 						Удалить
 					</a>
@@ -69,7 +82,7 @@
 
 
 			{% if request.user.is_authenticated %}
-				<h2>Написать комментарий:</h2>
+				<h2 id="comment-title">Написать комментарий:</h2>
 				<form class="post-create-form" action="." method="post">
 
 					{% csrf_token %}
@@ -83,7 +96,6 @@
 						{% endif %}
 
 						<div class="post-create-form-wrapper post_comment_form">
-							{{ field.label }}<br>
 							{{ field }}
 						</div>
 

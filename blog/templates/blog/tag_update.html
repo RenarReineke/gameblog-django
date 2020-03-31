@@ -7,37 +7,38 @@
 
 {% block content %}
 
+	<section class="area-message">
+		<form class="post-create-form" action="{{ tag.get_update_url }}" method="post">
 
-	<form class="post-create-form" action="{{ tag.get_update_url }}" method="post">
+			{% csrf_token %}
 
-		{% csrf_token %}
-
-		{{ message_error }}<br>
+			{{ message_error }}<br>
 
 
-		{% for field in form %}
+			{% for field in form %}
 
-			{% if field.errors %}
+				{% if field.errors %}
 
-				{{ field.errors }}
+					{{ field.errors }}
 
-			{% endif %}
+				{% endif %}
 
+				
+
+				<div class="post-create-form-wrapper">
+					{{ field.label }}
+					<br>
+					{{ field }}
+				</div>
+
+			{% endfor %}
+
+			<button class="post-create-form__button" type="submit">
+				Применить
+			</button>
 			
-
-			<div class="post-create-form-wrapper">
-				{{ field.label }}
-				<br>
-				{{ field }}
-			</div>
-
-		{% endfor %}
-
-		<button class="post-create-form__button" type="submit">
-			Применить
-		</button>
-		
-	</form>
+		</form>
+	</section>
 		
 
 

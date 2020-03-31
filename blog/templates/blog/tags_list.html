@@ -9,9 +9,11 @@
 
 {% block content %}
 	
-	<h1>Категории:</h1>
+	<h1 id="category-list">Категории:</h1>
 	<div class="tags-list-wrapper">
 		{% for tag in tags %}
+
+
 			<article class="tags-list-article">
 				<a class="tags-list-link" href="{{ tag.get_absolute_url }}">
 
@@ -19,6 +21,7 @@
 					
 				</a>
 			</article>
+
 		{% endfor %}
 	</div>
 
