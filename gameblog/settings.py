@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'social_django',
+    #'django_dropbox_storage',
     #приложения для создания карты сайта
     #'django.contrib.sites', #(как и в примере из инета, почему то комментирование этой строчки решило проблему DoesNotExist at /sitemap.xml/)
     #'django.contrib.sitemaps',
@@ -100,23 +101,23 @@ WSGI_APPLICATION = 'gameblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
- #       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-  #      'NAME':'gameblog',
-   #     'USER':'postgres',
-    #    'PASSWORD':'Python777',
-     #   'HOST':'127.0.0.1',
-      #  'PORT':'5432',
-#    }
-#}
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':'sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'gameblog',
+        'USER':'postgres',
+        'PASSWORD':'Python777',
+#        'HOST':'127.0.0.1',
+        'PORT':'5432',
     }
 }
+
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME':'sqlite3',
+    #}
+#}
 
 
 #db_from_env=dj_database_url.config()
@@ -179,7 +180,7 @@ STATIC_URL ='/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 
-MEDIA_URL='https://disk.yandex.ru/client/recent/'          #'/media/'
+MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
 
 
@@ -224,3 +225,14 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='o3r789lWCa4GjDGbTq8V5bbd'
 ##Секретные ключи из Вконтакте для подключения
 SOCIAL_AUTH_VK_OAUTH2_KEY='7371500'
 SOCIAL_AUTH_VK_OAUTH2_SECRET='l59yMCIEjIUH2Vb0jfh7'
+
+
+
+
+
+#Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+
+DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAADmOIUzB5Bv9TKt0bcIOhTmqo6jtDeJq3Y34ZvdJDpTJc'
+
+DROPBOX_ROOT_PATH = 'media/'

@@ -10,7 +10,7 @@ from .models import*
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-	list_display=('title', 'slug', 'body', 'date', 'user', 'link')
+	list_display=('title', 'slug', 'date', 'user', 'link')
 	search_fields=('title', 'body', 'user')
 	list_filter=('date',)
 	prepopulated_fields={'slug':('title',)}
