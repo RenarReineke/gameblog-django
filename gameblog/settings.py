@@ -120,8 +120,8 @@ DATABASES = {
 }
 
 
-db_from_env=dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+#db_from_env=dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -233,6 +233,6 @@ SOCIAL_AUTH_VK_OAUTH2_SECRET='l59yMCIEjIUH2Vb0jfh7'
 #Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 
-DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAADmOIUzB5Bv9TKt0bcIOhTmqo6jtDeJq3Y34ZvdJDpTJc'
+DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAAFbUqDiFEf3czo0gKHE4nE9YyEmA428nn6Y99A45_IHQS'
 
 DROPBOX_ROOT_PATH = 'media/'
