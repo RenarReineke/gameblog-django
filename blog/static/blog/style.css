@@ -323,7 +323,7 @@ h1 {
 
 
 .main {
-	padding: 20px 0;
+	padding: 0;
 
 	background-color: rgba(111, 245, 210, 0);
 
@@ -413,6 +413,7 @@ h1 {
 .posts {
 	width: 1200px;
 	padding: 30px;
+
 }
 
 .posts-list {
@@ -496,7 +497,7 @@ h1 {
 
 	position: absolute;
 
-	bottom: 57px;
+	bottom: 68px;
 }
 
 .posts-link h1:hover {
@@ -1175,7 +1176,7 @@ h1 {
 .paginations-list {
 	margin: 0;
 	padding: 0;
-	padding-top: 40px;
+	padding-bottom: 20px;
 	padding-left: 400px;
 
 	width: auto;
@@ -1189,10 +1190,10 @@ h1 {
 }
 
 .paginations-item, .paginations-button {
-	width: 50px;
-	height: 50px;
+	width: 30px;
+	height: 30px;
 
-	font-size: 26px;
+	font-size: 18px;
 
 	
 }
@@ -1207,7 +1208,7 @@ h1 {
 .paginations-button {
 
 	padding: 1px;
-	padding-top: 9px;
+	padding-top: 3px;
 	
 
 	display: block;
@@ -1296,6 +1297,39 @@ h1 {
 
 .social-item {
 	width: 100px;
+}
+
+
+
+/*Стили для выпадающего списка на админ-панели*/
+.admin-list, .admin-list li, .admin-create-list, .admin-create-list li {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.admin-create {
+
+	position: relative;
+}
+
+.admin-create-list {
+
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	position: absolute;
+	display: none;
+	top: 100%;
+}
+
+.admin-create:hover .admin-create-list {
+
+	display: inherit;
+
 }
 
 /*Стили для админ-панели*/
@@ -1402,6 +1436,9 @@ h1 {
 
 
 
+
+
+
 .disabled {
 
 	display: none;
@@ -1415,12 +1452,14 @@ h1 {
 	/*border: none;*/
 	/*background-color: rgba(106, 125, 154, 30);*/
 
+	height: 110px;
+
 }
 
 .social-icon {
 
 	width: 40px;
-	height: 50px;
+	height: 40px;
 
 	background-size: 50%;
 	background-repeat: no-repeat;

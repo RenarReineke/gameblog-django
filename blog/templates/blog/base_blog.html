@@ -23,13 +23,26 @@
 
 
 {% block user-panel %}
-
-	<a class="admin-panel__link  admin-panel__link--create admin-panel__link--create__post" href="{% url 'post_create_url' %}">
-		Создать с
+			
+	<a class="admin-create admin-panel__link  admin-panel__link--create admin-panel__link--create__post" href="{% url 'post_create_url' %}">
+		Создать<br>статью
 	</a>
-					
-	<a class="admin-panel__link  admin-panel__link--create admin-panel__link--create__tag" href="{% url 'tag_create_url' %}">
-		Создать т
+			
+	<a class="admin-create admin-panel__link  admin-panel__link--create admin-panel__link--create__tag" href="{% url 'tag_create_url' %}">
+		Создать<br>тэг
 	</a>
+			
+	{% if request.user == post.user %}
+		
+		<a class="admin-create admin-panel__link  admin-panel__link--create admin-panel__link--edit {% if not detail %}disabled{% endif %}" href="{{ admin_object.get_update_url }}">
+			Изменить
+		</a>
+	
+		<a class="admin-create admin-panel__link  admin-panel__link--create admin-panel__link--delete  {% if not detail %}disabled{% endif %}" href="{{ admin_object.get_delete_url }}">
+			Удалить
+		</a>
+		
+	{% endif %}
 
 {% endblock %}
+

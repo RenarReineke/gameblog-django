@@ -212,20 +212,21 @@
 			<section class="admin-panel">
 
 				<a class="admin-panel__link  admin-panel__link--admin" href="/admin">Админка</a>
-
+				
 				{% block admin-panel %}
 				
 				{% endblock %}
-
+				
 			</section>
 		{% endif %}
 
 		{% if request.user.is_authenticated and not request.user.is_staff %}
 			<section class="admin-panel">
-
+				
 				{% block user-panel %}
 				
 				{% endblock %}
+				
 
 			</section>
 		{% endif %}
