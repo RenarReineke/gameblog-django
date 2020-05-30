@@ -20,7 +20,7 @@
 		</div>
 		<h1>{{post.title}}</h1>
 		<img src="{{ post.image.url }}" alt="Картинка статьи">
-		<p class="post-description--card">{{post.body}}</p>
+		<p class="post-description--card">{{post.body|linebreaksbr}}</p>
 		<div class="post-description--meta--card" id="post-description--info2">
 
 			{% if post.link %}
@@ -71,7 +71,7 @@
 						</p>
 						<p>{{comment.created}}</p>
 					</div>
-					<p class="comment-text__body" >{{comment.body}}</p>
+					<p class="comment-text__body" >{{comment.body|linebreaksbr}}</p>
 					
 					<a class="admin-panel__link admin-panel__link--delete post-card-admin-delete comment-delete-button" href="{% url 'comment_delete_url' id=comment.id %}">
 						Удалить

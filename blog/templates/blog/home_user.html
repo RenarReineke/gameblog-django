@@ -94,7 +94,7 @@
 				<a class="home_user-link" href="{% url 'password_change' %}"><b>Сменить пароль</b></a>
 				<span class="home_user--date">Дата рождения:<br>{{ profile.date_of_birth }}</span>
 				<span class="home_user--date">Регистрация:<br>{{ profile.user.date_joined  }}</span>
-				<span class="home_user--date">Был в сети:<br>{{ profile.user.last_login  }}</span>
+				<span class="home_user--date">Входил в профиль:<br>{{ profile.user.last_login  }}</span>
 				{% if profile.user.is_staff %}
 					<span class="home_user--date">Персонал</span>
 				{% else %}

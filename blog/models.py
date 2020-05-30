@@ -23,7 +23,7 @@ class Post(models.Model):
 	body=models.TextField(blank=True, db_index=True, verbose_name='Описание')
 	date=models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
 	updated=models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
-	tag=models.ManyToManyField('Tag', blank=True, related_name='posts')
+	tag=models.ManyToManyField('Tag', related_name='posts')
 	image=models.ImageField(upload_to='posts', verbose_name='Картинка', null=True)
 	link=models.URLField(blank=True, null=True, verbose_name='Ссылка', help_text='Введите адрес ссылки')
 	user=models.ForeignKey(
@@ -169,6 +169,9 @@ class Profile(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('home_user', kwargs={'id':self.id})
+
+	def is_online(self, request):
+		return True
 
 
 

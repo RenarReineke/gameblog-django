@@ -36,6 +36,7 @@ class ObjectCreateMixin:
 			new_obj=bound_form.save(commit=False)
 			new_obj.user=user
 			new_obj.save()
+			bound_form.save_m2m()	
 			return redirect(new_obj)
 		return render(request, self.template, {self.model_form.__name__.lower():bound_form, 'message_error_create_form':message_error_create_form})
 
