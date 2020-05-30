@@ -18,8 +18,16 @@ import dj_database_url
 
 
 
+
+
+#from django.urls import reverse_lazy
+
+#ABSOLUTE_URL_OVVERRIDES={
+#    'auth.user':lambda u:reverse_lazy('home_user', args=[u.id])
+#}
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(__file__, os.pardir))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +37,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(__file__
 SECRET_KEY = 'nt6b6nshi+u$#i+ofb&n6enk1a#z(7n3%atz$qfnev(oz=cdld'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -83,6 +91,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'gameblog.wsgi.application'
 
 
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'ddloo1h4pm5k6c',
+        'USER':'cdhsujndbomlra',
+        'PASSWORD':'384c1f1b964897a8420a931f434d0fa0fc48357132c23b128d7c47dac20e73c6',
+        'HOST':'ec2-54-88-130-244.compute-1.amazonaws.com',
+        'PORT':'5432',
+    }
+}
+
+db_from_env=dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -179,3 +203,18 @@ SOCIAL_AUTH_FACEBOOK_SECRET='8436201b3f079d38fc66c92adb858294'
 #Секретные ключи из Гугла для подключения
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='597719370099-6ia2o0bahvk2ojfbd48244fv6u9kpms1.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='o3r789lWCa4GjDGbTq8V5bbd'
+
+
+
+
+
+
+
+
+
+Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+
+DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAAFbUqDiFEf3czo0gKHE4nE9YyEmA428nn6Y99A45_IHQS'
+
+DROPBOX_ROOT_PATH = 'media/'
