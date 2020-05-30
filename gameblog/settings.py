@@ -212,7 +212,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='o3r789lWCa4GjDGbTq8V5bbd'
 
 
 
-Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
+#Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 
 DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAAFbUqDiFEf3czo0gKHE4nE9YyEmA428nn6Y99A45_IHQS'
