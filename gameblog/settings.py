@@ -193,10 +193,9 @@ SOCIAL_AUTH_POSTGRES_JSONFIELD=True
 
 AUTHENTICATION_BACKENDS=(
 
-    'social_core.backends.facebook.FacebookOAuth2',
     #'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-
     )
 
 #Секретные ключи из Фейсбука для подключения
@@ -212,6 +211,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET='8436201b3f079d38fc66c92adb858294'
 #Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 
-DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAAFbUqDiFEf3czo0gKHE4nE9YyEmA428nn6Y99A45_IHQS'
+DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAANUraZEwk-EykiVpesiCFTXoYxjHBudgIN5F4gx4tDt00'
 
 DROPBOX_ROOT_PATH = 'media/'
