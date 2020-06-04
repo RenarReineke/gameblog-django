@@ -47,11 +47,11 @@
 
 						<a class="login-link" href="{{ user.profile.get_absolute_url }}">
 							<span><b>{{user.username|title}}</b></span>
-							<img src="{% if user.profile.foto %} {{ user.profile.foto.url }} {% else %} {% static 'blog/images/enter.png' %} {% endif %}">
+	<img src="{% if user.profile.foto %} {{ user.profile.foto.url }} {% else %} {% static 'blog/images/enter.png' %} {% endif %}">
 						</a>
 						<a class="login-link" href="{% url 'logout' %}">
 							<span>Выйти</span>
-							<img src="{% static 'blog/images/exit.jpg' %}" alt="Фото пользователя">
+							<img id="exit" src="{% static 'blog/images/exit.png' %}" alt="Фото пользователя">
 						</a>
 
 					</div>

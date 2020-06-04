@@ -46,10 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'social_django',
-    #'django_dropbox_storage',
-    #приложения для создания карты сайта
-    #'django.contrib.sites',
-    #'django.contrib.sitemaps',
+    
 ]
 
 MIDDLEWARE = [
@@ -174,12 +171,12 @@ MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
 
 
-#EMAIL_HOST='smtp.gmail.com';
-#EMAIL_PORT=587;
-#EMAIL_HOST_USER='';
-#EMAIL_HOST_PASSWORD='';
-#EMAIL_USE_TLS=True;
-#EMAIL_USE_SSL=False;
+EMAIL_HOST='smtp.gmail.com';
+EMAIL_PORT=587;
+EMAIL_HOST_USER='imperecdiego@gmail.com';
+EMAIL_HOST_PASSWORD='WestWorld';
+EMAIL_USE_TLS=True;
+EMAIL_USE_SSL=False;
 
 
 LOGIN_REDIRECT_URL='posts_list_url'
@@ -193,7 +190,7 @@ SOCIAL_AUTH_POSTGRES_JSONFIELD=True
 
 AUTHENTICATION_BACKENDS=(
 
-    #'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
     )
@@ -204,8 +201,8 @@ SOCIAL_AUTH_FACEBOOK_SECRET='8436201b3f079d38fc66c92adb858294'
 
 
 #Секретные ключи из Гугла для подключения
-#SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='AIzaSyBSImrg8u0Ojo89mZhvQUGdvqYpdXIWLX0'
-#SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='o3r789lWCa4GjDGbTq8V5bbd'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='597719370099-gnaql3l8qalr3mquicoesd7pt5cti44k.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='Gtd_fpdWzgjtNsPu6iGQXX7w'
 
 
 #Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
