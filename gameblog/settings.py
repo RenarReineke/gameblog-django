@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'social_django',
-    'django_dropbox_storage',
+    #'django_dropbox_storage',
     #приложения для создания карты сайта
     #'django.contrib.sites',
     #'django.contrib.sitemaps',
