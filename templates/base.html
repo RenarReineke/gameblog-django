@@ -16,7 +16,7 @@
 	</div>
 	<header class="header container">
 		<a href="{% url 'posts_list_url' %}">
-			<img class="logo header__logo" src="{% static 'blog/images/logo.jpg' %}">
+			<img class="logo header__logo" src="{% static 'blog/images/logo_4.jpg' %}">
 		</a>
 		<nav class="main-nav header__nav">
 			<ul class="main-nav-list">
@@ -68,7 +68,7 @@
 							<span>Войти</span>
 							<img src="{% static 'blog/images/exit.jpg' %}" alt="Фото пользователя">
 						</a>
-
+					
 					</div>
 					
 				{% endif %}
@@ -89,7 +89,7 @@
 	<main class="main container">
 		
 		<div class="main-wrapper">
-			<aside class="aside disabled">
+			<!--<aside class="aside disabled">
 				<h2>Функции</h2>
 				<ul class="aside-list">
 					<li class="aside-item"><a class="aside-link" href="/admin">Админка</a></li>
@@ -98,7 +98,7 @@
 					<li class="aside-item"><a class="aside-link" href="#">Популярные статьи</a></li>
 					<li class="aside-item"><a class="aside-link" href="#">RSS рассылка</a></li>
 				</ul>
-			</aside>
+			</aside>-->
 
 			<section class="posts">
 
@@ -201,8 +201,10 @@
 			<section class="admin-panel social-panel">
 
 				<a class="admin-panel__link social-icon fb" href="{% url 'social:begin' 'facebook' %}"></a>
-				
+
+				<!--
 				<a class="admin-panel__link social-icon ggl" href="{% url 'social:begin' 'google-oauth2' %}"></a>
+				-->
 
 			</section>
 
@@ -240,7 +242,7 @@
 
 		<section class="conacts">
 			<p>
-				<b>Контакты:</b><br>Мой адрес не дом и не улица<br>Глубинка Мордора
+				<b>Контакты:</b><br>Skype: <br>Telegram: 
 			</p>
 		</section>
 

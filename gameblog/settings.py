@@ -18,14 +18,6 @@ import dj_database_url
 
 
 
-
-
-#from django.urls import reverse_lazy
-
-#ABSOLUTE_URL_OVVERRIDES={
-#    'auth.user':lambda u:reverse_lazy('home_user', args=[u.id])
-#}
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -54,6 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'social_django',
+    'django_dropbox_storage',
+    #приложения для создания карты сайта
+    #'django.contrib.sites',
+    #'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -94,6 +90,14 @@ WSGI_APPLICATION = 'gameblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME':'sqlite3',
+#    }
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -104,6 +108,7 @@ DATABASES = {
         'PORT':'5432',
     }
 }
+
 
 db_from_env=dj_database_url.config()
 DATABASES['default'].update(db_from_env)
@@ -161,6 +166,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL ='/static/'
+#STATICFILES_DIRS=[os.path.join(BASE_DIR, '/static/'),]
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 
@@ -168,12 +174,12 @@ MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
 
 
-EMAIL_HOST='smtp.gmail.com';
-EMAIL_PORT=587;
-EMAIL_HOST_USER='imperecdiego@gmail.com';
-EMAIL_HOST_PASSWORD='Python777';
-EMAIL_USE_TLS=True;
-EMAIL_USE_SSL=False;
+#EMAIL_HOST='smtp.gmail.com';
+#EMAIL_PORT=587;
+#EMAIL_HOST_USER='';
+#EMAIL_HOST_PASSWORD='';
+#EMAIL_USE_TLS=True;
+#EMAIL_USE_SSL=False;
 
 
 LOGIN_REDIRECT_URL='posts_list_url'
@@ -188,9 +194,7 @@ SOCIAL_AUTH_POSTGRES_JSONFIELD=True
 AUTHENTICATION_BACKENDS=(
 
     'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.vk.VKOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.google.GoogleOAuth2',
+    #'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 
     )
@@ -201,8 +205,10 @@ SOCIAL_AUTH_FACEBOOK_SECRET='8436201b3f079d38fc66c92adb858294'
 
 
 #Секретные ключи из Гугла для подключения
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='597719370099-6ia2o0bahvk2ojfbd48244fv6u9kpms1.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='o3r789lWCa4GjDGbTq8V5bbd'
+#SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='AIzaSyBSImrg8u0Ojo89mZhvQUGdvqYpdXIWLX0'
+#SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='o3r789lWCa4GjDGbTq8V5bbd'
+
+
 
 
 

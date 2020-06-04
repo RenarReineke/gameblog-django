@@ -245,7 +245,7 @@ class PostShare(View):
 			subject='{} ({}) рекомендует вам прочитать статью {}'.format(cd['name'],cd['email'], post.title)
 			message='Прочитайте {} по ссылке {}.\n\nКомментарий от {}: {}'.format(post.title, post_url, cd['name'], cd['comment']) 
 
-			send_mail(subject, message, 'admin@gameblog.com', [cd['recipient']])
+			send_mail(subject, message, 'imperecdiego@gmail.com', [cd['recipient']])
 
 			sent=True
 

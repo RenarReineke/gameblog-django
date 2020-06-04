@@ -170,8 +170,6 @@ class Profile(models.Model):
 	def get_absolute_url(self):
 		return reverse('home_user', kwargs={'id':self.id})
 
-	def is_online(self, request):
-		return True
 
 
 
