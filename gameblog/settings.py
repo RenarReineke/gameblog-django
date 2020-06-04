@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.postgres',
     'social_django',
-    'django_dropbox_storage',
+    #'django_dropbox_storage',
     #приложения для создания карты сайта
     #'django.contrib.sites',
     #'django.contrib.sitemaps',
@@ -110,8 +110,8 @@ DATABASES = {
 }
 
 
-db_from_env=dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+#db_from_env=dj_database_url.config()
+#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -209,18 +209,9 @@ SOCIAL_AUTH_FACEBOOK_SECRET='8436201b3f079d38fc66c92adb858294'
 #SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='o3r789lWCa4GjDGbTq8V5bbd'
 
 
-
-
-
-
-
-
-
-
-
 #Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 
-DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAAFbUqDiFEf3czo0gKHE4nE9YyEmA428nn6Y99A45_IHQS'
+#DROPBOX_OAUTH2_TOKEN = 'VeNVl9rVshAAAAAAAAAAFbUqDiFEf3czo0gKHE4nE9YyEmA428nn6Y99A45_IHQS'
 
-DROPBOX_ROOT_PATH = 'media/'
+#DROPBOX_ROOT_PATH = 'media/'
