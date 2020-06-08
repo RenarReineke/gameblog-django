@@ -347,83 +347,7 @@ h1 {
 	justify-content: space-between;
 }
 
-/*
-.aside {
-	box-sizing: border-box;
 
-	margin-top: 130px;
-	padding: 10px;
-
-	width: 200px;
-	height: 540px;
-
-	background-color: #70C689;
-
-	border: 3px solid #1B311E;
-	border-radius: 10px;
-
-}
-
-.aside h2 {
-	word-wrap:break-word;
-
-	box-sizing: border-box;
-	padding: 10px;
-
-	font-size: 26px;
-	line-height: 30px;
-
-	border: 2px solid;
-	border-radius: 10px;
-
-	background-color: #44ADDC;
-	
-}
-
-.aside-list {
-	margin: 0;
-	padding: 10px;
-	list-style: none;
-
-	font-size: 24px;
-	line-height: 28px;
-
-	word-wrap:break-word;
-
-	display: flex;
-	flex-direction: column;
-}
-
-.aside-item {
-	padding: 0;
-	margin: 0;
-
-	
-}
-
-.aside-link {
-	display: block;
-
-	padding: 10px;
-
-	margin-top: 10px;
-
-	text-align: center;
-
-	border: 2px solid;
-	border-radius: 5px;
-
-	background-color: #296752;
-	color: #000000;
-}
-
-.aside-link:hover {
-
-	background-color: #61725C;
-
-	font-weight: bold;
-}
-*/
 .posts {
 	width: 1200px;
 	padding: 30px;
@@ -616,12 +540,6 @@ h1 {
 
 .post-data {
 	box-sizing: border-box;
-	/*padding: 7px;
-	padding-left: 10px;
-	margin-top: 2px;
-
-	border: 2px solid;
-	border-radius: 12px;*/
 
 	margin: 0;
 	margin-left: 100px;
@@ -630,12 +548,7 @@ h1 {
 
 .post-author {
 	box-sizing: border-box;
-	/*padding: 7px;
-	padding-left: 10px;
-	margin-top: 2px;
-
-	border: 2px solid;
-	border-radius: 12px;*/
+	
 	margin: 0px;
 
 }
@@ -717,46 +630,18 @@ h1 {
 
 .post-data--card {
 	box-sizing: border-box;
-	/*padding: 7px;
-	padding-left: 10px;
-	margin-top: 2px;
-
-
-	width: auto;
-
-	border: 2px solid;
-	border-radius: 12px;
-
-	background-color: #EFF2C7;
-
-	font-size: 14px;
-	line-height: 18px;*/
+	
 	margin: 0;
 	margin-right: 600px;
 }
 
 .post-author--card {
 	box-sizing: border-box;
-	/*padding: 7px;
-	padding-left: 10px;
-	margin-top: 2px;
-
-	width: auto;
-
-	border: 2px solid;
-	border-radius: 12px;
-
-	background-color: #EFF2C7;
-
-	font-size: 14px;
-	line-height: 18px;*/
+	
 	margin: 0;
 }
 
-/*#post-description--info {
 
-	position: relative;
-}*/
 
 #post-card-admin-share {
 
@@ -1412,19 +1297,6 @@ h1 {
 
 }
 
-/*.admin-panel__link:hover {
-
-	padding-top: 30px;
-
-	border: 2px solid;
-	border-radius: 10px;
-
-	width: 230px;
-	height: 100px;
-
-	font-size: 34px;
-	font-weight: bold;
-}*/
 
 .admin-panel__link--admin {
 

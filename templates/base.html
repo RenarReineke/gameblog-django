@@ -89,16 +89,6 @@
 	<main class="main container">
 		
 		<div class="main-wrapper">
-			<!--<aside class="aside disabled">
-				<h2>Функции</h2>
-				<ul class="aside-list">
-					<li class="aside-item"><a class="aside-link" href="/admin">Админка</a></li>
-					<li class="aside-item"><a class="aside-link" href="{% url 'post_create_url' %}">Добавить статью</a></li>
-					<li class="aside-item"><a class="aside-link" href="{% url 'tag_create_url' %}">Добавить тэг</a></li>
-					<li class="aside-item"><a class="aside-link" href="#">Популярные статьи</a></li>
-					<li class="aside-item"><a class="aside-link" href="#">RSS рассылка</a></li>
-				</ul>
-			</aside>-->
 
 			<section class="posts">
 
@@ -196,17 +186,6 @@
 			</section>
 		</div>
 
-		
-		{% if not request.user.is_authenticated %}
-			<section class="admin-panel social-panel">
-
-				<a class="admin-panel__link social-icon fb" href="{% url 'social:begin' 'facebook' %}"></a>
-
-				<a class="admin-panel__link social-icon ggl" href="{% url 'social:begin' 'google-oauth2' %}"></a>
-
-			</section>
-
-		{% endif %}
 
 		{% if request.user.is_authenticated and request.user.is_staff %}
 			<section class="admin-panel">

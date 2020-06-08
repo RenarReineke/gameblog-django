@@ -133,20 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-DATE_INPUT_FORMATS=[
 
-    '%Y-%m-%d', '%Y-%b-%d', '%Y-%B-%d',
-    '%Y %m %d', '%Y %b %d', '%Y %B %d',
-    '%Y/%m/%d', '%Y/%b/%d', '%Y/%B/%d',
-
-    '%d-%m-%Y', '%d-%b-%Y', '%d-%B-%Y',
-    '%d %m %Y', '%d %b %Y', '%d %B %Y',
-    '%d/%m/%Y', '%d/%b/%Y', '%d/%B/%Y',
-
-    '%m-%d-%Y', '%b-%d-%Y', '%B-%d-%Y',
-    '%m %d %Y', '%b %d %Y', '%B %d %Y',
-    '%m/%d/%Y', '%b/%d/%Y', '%B/%d/%Y',
-]
 
 LANGUAGE_CODE = 'ru-ru'
 
@@ -163,7 +150,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL ='/static/'
-#STATICFILES_DIRS=[os.path.join(BASE_DIR, '/static/'),]
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 
@@ -190,19 +176,10 @@ SOCIAL_AUTH_POSTGRES_JSONFIELD=True
 
 AUTHENTICATION_BACKENDS=(
 
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.facebook.FacebookOAuth2',
+    
     'django.contrib.auth.backends.ModelBackend',
     )
 
-#Секретные ключи из Фейсбука для подключения
-SOCIAL_AUTH_FACEBOOK_KEY='504751600196436'
-SOCIAL_AUTH_FACEBOOK_SECRET='8436201b3f079d38fc66c92adb858294'
-
-
-#Секретные ключи из Гугла для подключения
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY='597719370099-gnaql3l8qalr3mquicoesd7pt5cti44k.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET='Gtd_fpdWzgjtNsPu6iGQXX7w'
 
 
 #Настройки для связи Heroku с облачным сервисом Дропбокс, который хранит картинки.
