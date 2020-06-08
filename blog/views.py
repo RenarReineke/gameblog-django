@@ -30,7 +30,7 @@ def home_user(request, id):
 
 
 
-@login_required
+
 def users_list(request):
 
 	
